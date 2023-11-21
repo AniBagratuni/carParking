@@ -1,6 +1,5 @@
 package com.example.carParking.api.v1.dto;
 
-import com.example.carParking.dao.enums.Status;
 import lombok.*;
 import lombok.experimental.Accessors;
 
@@ -13,4 +12,7 @@ import lombok.experimental.Accessors;
 public class ResidentDTO {
     private Long id;
     private String name;
+    private Boolean isFree;
+    private double pricePerHour;
+    private double minPrice;
 }

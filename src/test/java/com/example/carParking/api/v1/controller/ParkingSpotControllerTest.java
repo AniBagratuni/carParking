@@ -48,13 +48,13 @@ public class ParkingSpotControllerTest {
                 .setId(1L)
                 .setStatus(Status.FREE)
                 .setSpotNumber("1A")
-                .setResident(new ResidentDTO(1L,"R1"));
+                .setResident(new ResidentDTO(1L,"R1", true, 0.0, 0.0));
 
         parkingSpot = new ParkingSpot()
                 .setId(1L)
                 .setStatus(Status.FREE)
                 .setSpotNumber("1A")
-                .setResident(new Resident(1L,"R1"));
+                .setResident(new Resident(1L,"R1", true, 0.0, 0.0));
     }
 
     @Test

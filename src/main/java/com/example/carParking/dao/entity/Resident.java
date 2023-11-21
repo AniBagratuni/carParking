@@ -20,6 +20,14 @@ public class Resident {
     @Column(unique = true, nullable = false)
     private String name;
 
+    @Column(nullable = false,columnDefinition = "boolean default false")
+    private Boolean isFree = false;
+
+    private double pricePerHour;
+
+    @Column(nullable = false, columnDefinition = "double(10,2) default 0.00")
+    private double minPrice;
+
     public Resident () {}
 
     @Override

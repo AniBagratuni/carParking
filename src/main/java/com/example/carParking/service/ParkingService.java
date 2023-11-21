@@ -23,6 +23,9 @@ public class ParkingService {
     ParkingSpotService parkingSpotService;
 
     @Autowired
+    PaymentService paymentService;
+
+    @Autowired
     private UserParkingReservationRepository userParkingReservationRepository;
 
     public UserParkingReservation bookParkingSpot(UserParkingReservation userParkingReservation, Long residentId) {
@@ -87,6 +90,7 @@ public class ParkingService {
     public void releaseParkingSpot(Long userId) {
         UserParkingReservation userParkingReservation = userParkingReservationRepository.findByUserId(userId);
         if (userParkingReservation != null) {
+            paymentService.payForParking(userParkingReservation);
             ParkingSpot parkingSpot = userParkingReservation.getParkingSpot();
             parkingSpot.setStatus(Status.FREE);
             parkingSpotService.updateParkingSpot(parkingSpot);
